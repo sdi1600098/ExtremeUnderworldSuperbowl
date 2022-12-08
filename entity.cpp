@@ -1,3 +1,7 @@
+#include "entity.hpp"
+#include <iostream>
+using namespace std;
+
 class Entity 
 {
   public:

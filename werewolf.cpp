@@ -1,3 +1,7 @@
+#include <iostream>
+#include "werewolf.hpp"
+using namespace std;
+
 class Werewolf : public Entity 
 {
   public:

@@ -1,3 +1,7 @@
+#include <iostream>
+#include "avatar.hpp"
+using namespace std;
+
 class Avatar : public Entity 
 {
   public:

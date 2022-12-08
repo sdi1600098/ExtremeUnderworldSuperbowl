@@ -1,5 +1,7 @@
-#ifndef ENTITY_HPP
-#define ENTITY_HPP
+#ifndef ENTITY
+#define ENTITY
+#include <iostream>
+using namespace std;
 
 class Entity 
 {
@@ -33,4 +35,4 @@ class Entity
     int the_health, the_attack, the_defense; // Entity's stats
 };
 
-#endif // ENTITY_HPP
+#endif // ENTITY

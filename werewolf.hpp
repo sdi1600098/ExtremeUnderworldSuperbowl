@@ -1,7 +1,8 @@
-#ifndef WEREWOLF_HPP
-#define WEREWOLF_HPP
-
+#ifndef WEREWOLF
+#define WEREWOLF
+#include <iostream>
 #include "entity.hpp"
+using namespace std;
 
 class Werewolf : public Entity 
 {
@@ -26,4 +27,4 @@ class Werewolf : public Entity
     int the_x, the_y; // Werewolf's position on the grid
 };
 
-#endif // WEREWOLF_HPP
+#endif // WEREWOLF

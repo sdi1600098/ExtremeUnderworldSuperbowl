@@ -1,7 +1,8 @@
-#ifndef AVATAR_HPP
-#define AVATAR_HPP
-
+#ifndef AVATAR
+#define AVATAR
+#include <iostream>
 #include "entity.hpp"
+using namespace std;
 
 class Avatar : public Entity 
 {
@@ -26,4 +27,4 @@ class Avatar : public Entity
     int the_x, the_y; // Avatar's position on the grid
 };
 
-#endif // AVATAR_HPP
+#endif // AVATAR

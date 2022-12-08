@@ -1,7 +1,8 @@
-#ifndef VAMPIRE_HPP
-#define VAMPIRE_HPP
-
+#ifndef VAMPIRE
+#define VAMPIRE
+#include <iostream>
 #include "entity.hpp"
+using namespace std;
 
 class Vampire : public Entity
 {
@@ -26,4 +27,4 @@ class Vampire : public Entity
     int the_x, the_y; // Vampire's position on the grid
 };
 
-#endif // VAMPIRE_HPP
+#endif // VAMPIRE

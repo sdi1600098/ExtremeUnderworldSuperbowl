@@ -1,3 +1,7 @@
+#include <iostream>
+#include "vampire.hpp"
+using namespace std;
+
 class Vampire : public Entity 
 {
   public:
