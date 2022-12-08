@@ -1,4 +1,10 @@
 #include <conio.h> // For getch() function
+#include <iostream>
+#include "entity.hpp"
+#include "vampire.hpp"
+#include "werewolf.hpp"
+#include "avatar.hpp"
+using namespace std;
 
 void updateGameState() 
 {
