@@ -1,0 +1,29 @@
+#ifndef VAMPIRE_HPP
+#define VAMPIRE_HPP
+
+#include "entity.hpp"
+
+class Vampire : public Entity
+{
+  public:
+    // Constructor
+    Vampire(int health, int attack, int defense);
+
+    // Overridden defend function
+    void defend(int damage) override;
+
+    // Overridden attack function
+    void attack(Entity& target) override;
+
+    // Function for moving the vampire on the grid
+    void move(Grid& grid) override;
+
+    // Getters for the vampire's position
+    int getX() const;
+    int getY() const;
+
+  private:
+    int the_x, the_y; // Vampire's position on the grid
+};
+
+#endif // VAMPIRE_HPP
