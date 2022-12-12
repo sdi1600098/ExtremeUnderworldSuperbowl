@@ -15,8 +15,8 @@ int main()
 
     //initialize map
     Grid map(length, width);
-
-    map.set_identity(3, 5, 1);
+    map.rand_in_board();
+    //map.set_identity(3, 5, tree);
     map.print();
     return 0;
 }

@@ -6,7 +6,8 @@ class Grid
     public:
         Grid(int in_height, int in_length);
         ~Grid();
-        void set_identity(int x, int y, int k);
+        void rand_in_board();
+        void set_identity(int x, int y, en_identity k);
         int get_identity(int x, int y);
         void print();
     private:

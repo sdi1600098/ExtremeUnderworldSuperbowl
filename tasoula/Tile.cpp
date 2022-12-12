@@ -4,7 +4,7 @@
 //Constructor
 Tile::Tile()
 {
-    identity = 0;
+    identity = ground;
 }
 
 //Destructor
