@@ -8,7 +8,7 @@ class Vampire : public Entity
 {
   public:
     // Constructor
-    Vampire(int health, int attack, int defense);
+    Vampire(int health);
 
     // Overridden defend function
     void defend(int damage) override;
