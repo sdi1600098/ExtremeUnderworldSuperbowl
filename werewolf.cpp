@@ -2,15 +2,13 @@
 #include "werewolf.hpp"
 using namespace std;
 
-class Werewolf : public Entity 
-{
-  public:
+
     // Constructor
-    Werewolf(int health)
+    Werewolf::Werewolf(int health)
       : Entity(health) {}
 
     // Overridden defend function
-    void defend(int damage) override 
+    void Werewolf::defend(int damage) override 
     {
       // Reduce the damage taken based on the werewolf's defense
       damage -= the_defense;
@@ -21,14 +19,14 @@ class Werewolf : public Entity
     }
 
     // Overridden attack function
-    void attack(Entity& target) override 
+    void Werewolf::attack(Entity& target) override 
     {
       // Deal damage to the target based on the werewolf's attack
       target.defend(the_attack);
     }
 
     // Function for moving the werewolf on the grid
-    void move(Grid& grid) override
+    void Werewolf::move(Grid& grid) override
     {
       // Randomly choose a direction for the werewolf to move
       int dx = 0, dy = 0;
@@ -57,9 +55,9 @@ class Werewolf : public Entity
     }
 
     // Getters for the werewolf's position
-    int getX() const { return the_x; }
-    int getY() const { return the_y; }
+    int Werewolf::getX() const { return the_x; }
+    int Werewolf::getY() const { return the_y; }
 
-  private:
+ 
     int the_x, the_y; // Werewolf's position on the grid
-};
+
