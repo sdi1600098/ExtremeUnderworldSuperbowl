@@ -2,15 +2,13 @@
 #include "vampire.hpp"
 using namespace std;
 
-class Vampire : public Entity 
-{
-  public:
+
     // Constructor
-    Vampire(int health)
+    Vampire::Vampire(int health)
       : Entity(health) {}
 
     // Overridden defend function
-    void defend(int damage) override 
+    void Vampire::defend(int damage) override 
     {
       // Reduce the damage taken based on the vampire's defense
       damage -= the_defense;
@@ -21,14 +19,14 @@ class Vampire : public Entity
     }
 
     // Overridden attack function
-    void attack(Entity& target) override 
+    void Vampire::attack(Entity& target) override 
     {
       // Deal damage to the target based on the vampire's attack
       target.defend(the_attack);
     }
 
     // Function for moving the vampire on the grid
-    void move(Grid& grid) override
+    void Vampire::move(Grid& grid) override
     {
       // Randomly choose a direction for the vampire to move
       int dx = rand() % 3 - 1; // -1, 0, or 1
@@ -53,9 +51,9 @@ class Vampire : public Entity
     }
 
     // Getters for the vampire's position
-    int getX() const { return the_x; }
-    int getY() const { return the_y; }
+    int Vampire::getX() const { return the_x; }
+    int Vampire::getY() const { return the_y; }
 
-  private:
+  
     int the_x, the_y; // Vampire's position on the grid
-};
+
