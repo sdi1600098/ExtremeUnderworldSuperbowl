@@ -6,8 +6,8 @@ class Avatar : public Entity
 {
   public:
     // Constructor
-    Avatar(int health, int attack, int defense)
-      : Entity(health, attack, defense) {}
+    Avatar(int health)
+      : Entity(health) {}
 
     // Overridden defend function
     void defend(int damage) override 
