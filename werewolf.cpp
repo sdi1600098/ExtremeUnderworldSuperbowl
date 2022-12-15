@@ -6,8 +6,8 @@ class Werewolf : public Entity
 {
   public:
     // Constructor
-    Werewolf(int health, int attack, int defense)
-      : Entity(health, attack, defense) {}
+    Werewolf(int health)
+      : Entity(health) {}
 
     // Overridden defend function
     void defend(int damage) override 
