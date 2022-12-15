@@ -2,15 +2,13 @@
 #include "avatar.hpp"
 using namespace std;
 
-class Avatar : public Entity 
-{
-  public:
+
     // Constructor
-    Avatar(int health)
+    Avatar::Avatar(int health)
       : Entity(health) {}
 
     // Overridden defend function
-    void defend(int damage) override 
+    void Avatar::defend(int damage) override 
     {
       // Reduce the damage taken based on the avatar's defense
       damage -= the_defense;
@@ -21,14 +19,14 @@ class Avatar : public Entity
     }
 
     // Overridden attack function
-    void attack(Entity& target) override 
+    void Avatar::attack(Entity& target) override 
     {
       // Deal damage to the target based on the avatar's attack
       target.defend(the_attack);
     }
 
     // Function for moving the avatar on the grid
-    void move(Grid& grid, int dx, int dy) override
+    void Avatar::move(Grid& grid, int dx, int dy) override
     {
       // Calculate the new position of the avatar
       int x = the_x + dx;
@@ -49,9 +47,9 @@ class Avatar : public Entity
     }
 
     // Getters for the avatar's position
-    int getX() const { return the_x; }
-    int getY() const { return the_y; }
+    int Avatar::getX() const { return the_x; }
+    int Avatar::getY() const { return the_y; }
 
-  private:
+ 
     int the_x, the_y; // Avatar's position on the grid
-};
+
