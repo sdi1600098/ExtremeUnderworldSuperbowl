@@ -127,13 +127,77 @@ int Grid::get_identity(int x, int y)
     return map[x][y].identity;
 }
 
+int Grid::get_player_x(void)
+{
+    for(int i = 0 ; i < height ; i++)
+        for(int j = 0 ; j < length ; j++)
+            if(map[i][j].identity == player_avatar)
+                return j;
+    return 0;
+}
+
+int Grid::get_player_y(void)
+{
+    for(int i = 0 ; i < height ; i++)
+        for(int j = 0 ; j < length ; j++)
+            if(map[i][j].identity == player_avatar)
+                return i;
+    return 0;
+}
+
 //Function to print the map
 void Grid::print()
 {
     for (int i = 0 ; i < height ; i++)
     {
+        cout<<"|";
         for (int j = 0 ; j < length ; j++)
-            cout<< map[i][j].identity << ' ';
+        {
+            if(j == length - 1)
+            {
+                cout<<"---";
+                break;
+            }
+            cout<<"----";
+        }
+        cout<<"|";
+        cout<<endl<<"|";
+        for (int j = 0 ; j < length ; j++)
+            switch(map[i][j].identity)
+            {
+                case 0:
+                    cout<<"   |";
+                    break;
+                case 1:
+                    cout<<" T |";
+                    break;
+                case 2:
+                    cout<<"   |";
+                    break;
+                case 3:
+                    cout<<" @ |";
+                    break;
+                case 4:
+                    cout<<" V |";
+                    break;
+                case 5:
+                    cout<<" W |";
+                    break;
+                case 6:
+                    cout<<" P |";
+                    break;
+            }
         cout<<endl;
     }
+    cout<<"|";
+    for (int j = 0 ; j < length ; j++)
+    {
+        if(j == length - 1)
+        {
+            cout<<"---";
+            break;
+        }
+        cout<<"----";
+    }
+    cout<<"|"<<endl<<"|";
 }

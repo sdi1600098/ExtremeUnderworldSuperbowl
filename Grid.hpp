@@ -9,6 +9,8 @@ class Grid
         void rand_in_board();
         void set_identity(int x, int y, en_identity k);
         int get_identity(int x, int y);
+        int get_player_y();
+        int get_player_x();
         void print();
     private:
         int height;
