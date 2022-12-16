@@ -42,6 +42,7 @@ int main()
     map.print();
     //-----------------------------------//
     int game_over = 0;
+    int game_paused = 0;
     int p_y;
     int p_x;
     while(game_over == 0)
@@ -59,7 +60,7 @@ int main()
                     map.set_identity(p_y - 1, p_x, player_avatar);
                 }
                 break;
-                
+
             case 'a' :
                 if(p_x != 0)
                 {
@@ -84,10 +85,23 @@ int main()
                 }
                 break; 
 
-            //case 'p' :
-        }
-        map.print();
+            case 'p' :
+                if(game_paused == 1)
+                    game_paused = 0;
+                else
+                    game_paused = 1;
 
+        }
+        if(game_paused == 0)
+            map.print();
+        else
+        {
+            cout<<" # GAME PAUSED #"<<endl<<endl;
+            cout<<"Werewolf alliance of the oppressed warriors left: "<<endl;
+            cout<<"Pale edgy people with black make-up left: "<<endl;
+            cout<<"It is day/night"<<endl<<endl;
+            cout<<"press 'p' to resume"<<endl;
+        }
     }
 
     return 0;
