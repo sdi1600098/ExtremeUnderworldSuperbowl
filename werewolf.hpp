@@ -1,7 +1,7 @@
 #ifndef WEREWOLF
 #define WEREWOLF
 #include <iostream>
-#include "entity.hpp"
+#include "Entity.hpp"
 using namespace std;
 
 class Werewolf : public Entity 

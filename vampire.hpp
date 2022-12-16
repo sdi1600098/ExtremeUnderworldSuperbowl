@@ -1,7 +1,7 @@
 #ifndef VAMPIRE
 #define VAMPIRE
 #include <iostream>
-#include "entity.hpp"
+#include "Entity.hpp"
 using namespace std;
 
 class Vampire : public Entity

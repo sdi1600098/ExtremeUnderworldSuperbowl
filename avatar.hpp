@@ -1,7 +1,7 @@
 #ifndef AVATAR
 #define AVATAR
 #include <iostream>
-#include "entity.hpp"
+#include "Entity.hpp"
 using namespace std;
 
 class Avatar : public Entity 
