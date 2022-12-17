@@ -36,6 +36,6 @@ void Entity::rand_Defense()
 // Virtual functions
 virtual void Entity::defend(int damage) = 0;
 virtual void Entity::attack(Entity& target) = 0;
-virtual void Entity::move() = 0;
+virtual void Entity::move(Grid& grid) = 0;
 
 int the_health, the_attack, the_defense; // Entity's stats

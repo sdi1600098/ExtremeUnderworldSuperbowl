@@ -26,25 +26,70 @@ void Avatar::attack(Entity& target) override
 }
 
 // Function for moving the avatar on the grid
-void Avatar::move(Grid& grid, int dx, int dy) override
+void Avatar::move(Grid& grid, char input) override
 {
-  // Calculate the new position of the avatar
-  int x = the_x + dx;
-  int y = the_y + dy;
+    // Get the current position of the avatar
+    int x = getX();
+    int y = getY();
 
-  // Check if the new position is within the bounds of the grid
-  if (x >= 0 && x < grid.getWidth() && y >= 0 && y < grid.getHeight()) 
-  {
-    // Check if the new position is passable
-    const Tile& tile = grid.getTile(x, y);
-    if (tile.isPassable()) 
+    // Update the position of the avatar based on the input
+    switch(input)
     {
-      // Update the avatar's position
-      the_x = x;
-      the_y = y;
+        case 'w' :
+            if(y > 0)
+            {
+                // Update the avatar's position on the grid
+                grid.set_identity(y, x, ground);
+                grid.set_identity(y - 1, x, player_avatar);
+
+                // Update the avatar's position variables
+                the_x = x;
+                the_y = y - 1;
+            }
+            break;
+
+        case 'a' :
+            if(x > 0)
+            {
+                // Update the avatar's position on the grid
+                grid.set_identity(y, x, ground);
+                grid.set_identity(y, x - 1, player_avatar);
+
+                // Update the avatar's position variables
+                the_x = x - 1;
+                the_y = y;
+            }
+            break;
+
+        case 's' :
+            if(y < grid.getHeight() - 1)
+            {
+                // Update the avatar's position on the grid
+                grid.set_identity(y, x, ground);
+                grid.set_identity(y + 1, x, player_avatar);
+
+                // Update the avatar's position variables
+                the_x = x;
+                the_y = y + 1;
+            }
+            break;
+
+        case 'd' :
+            if(x < grid.getLength() - 1)
+            {
+                // Update the avatar's position on the grid
+                grid.set_identity(y, x, ground);
+                grid.set_identity(y, x + 1, player_avatar);
+
+                // Update the avatar's position variables
+                the_x = x + 1;
+                the_y = y;
+            }
+            break;
+        default:
+        break;
     }
-  }
-}
+}    
 
 // Getters for the avatar's position
 int Avatar::getX() const { return the_x; }

@@ -41,11 +41,11 @@ void Werewolf::move(Grid& grid) override
   int y = the_y + dy;
 
   // Check if the new position is within the bounds of the grid
-  if (x >= 0 && x < grid.getWidth() && y >= 0 && y < grid.getHeight())
+  if (x >= 0 && x < grid.getWidth() && y >= 0 && y < grid.getHeight()) 
   {
     // Check if the new position is passable
     const Tile& tile = grid.getTile(x, y);
-    if (tile.isPassable()) 
+    if (tile.getType() == TileType::ground) 
     {
       // Update the werewolf's position
       the_x = x;

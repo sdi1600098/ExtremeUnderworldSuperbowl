@@ -41,7 +41,7 @@ void Vampire::move(Grid& grid) override
   {
     // Check if the new position is passable
     const Tile& tile = grid.getTile(x, y);
-    if (tile.isPassable()) 
+    if (tile.getType() == TileType::ground) 
     {
       // Update the vampire's position
       the_x = x;

@@ -28,6 +28,9 @@ Grid::Grid(int in_height, int in_length)
 //Destructor
 Grid::~Grid()
 {
+    /* for (int i = 0; i < height; i++)
+        delete [] map[i];
+    delete [] map; */
 
 }
 

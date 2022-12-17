@@ -8,7 +8,7 @@ class Avatar : public Entity
 {
   public:
     // Constructor
-    Avatar(int health, int attack, int defense);
+    Avatar(int health);
 
     // Overridden defend function
     void defend(int damage) override ;
@@ -17,7 +17,7 @@ class Avatar : public Entity
     void attack(Entity& target) override ;
 
     // Function for moving the avatar on the grid
-    void move(Grid& grid, int dx, int dy) override;
+    void move(Grid& grid, char input) override;
 
     // Getters for the avatar's position
     int getX() const ;
