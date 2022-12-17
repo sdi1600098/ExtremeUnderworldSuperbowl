@@ -25,6 +25,7 @@ class Vampire : public Entity
 
   private:
     int the_x, the_y; // Vampire's position on the grid
+    int healing_potions; //  The amount of healing potions the vampire has
 };
 
 #endif // VAMPIRE
