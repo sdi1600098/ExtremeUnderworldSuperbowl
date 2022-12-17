@@ -25,6 +25,7 @@ class Avatar : public Entity
 
   private:
     int the_x, the_y; // Avatar's position on the grid
+    int magic_potions; // the amount of magic potions the avatar has
 };
 
 #endif // AVATAR
