@@ -148,6 +148,16 @@ int Grid::get_player_y(void)
     return 0;
 }
 
+int Grid::get_height()
+{
+    return height;
+}
+
+int Grid::get_length()
+{
+    return length;
+}
+
 //Function to print the map
 void Grid::print()
 {

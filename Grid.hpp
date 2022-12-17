@@ -11,9 +11,12 @@ class Grid
         int get_identity(int x, int y);
         int get_player_y();
         int get_player_x();
+        int get_height();
+        int get_length();
         void print();
+        Tile** map;
     private:
         int height;
         int length;
-        Tile** map;
+        //Tile** map;
 };

@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Grid.hpp"
+//#include "Grid.hpp"
+#include "Avatar.hpp"
 using namespace std;
 
 int main()
@@ -41,7 +42,15 @@ int main()
     map.rand_in_board();
     map.print();
     //-----------------------------------//
-    int game_over = 0;
+    cin>>input;
+    Avatar player(5);
+    player.move(map, input);
+
+
+
+
+
+   /* int game_over = 0;
     int game_paused = 0;
     int p_y;
     int p_x;
@@ -53,7 +62,7 @@ int main()
         switch(input)
         {
             case 'w' :
-                if(p_y != 0)
+                if(p_y != 0 && (map.map[p_y - 1][p_x].identity == ground || map.map[p_y - 1][p_x].identity == potion))
                 {   
                     
                     map.set_identity(p_y, p_x, ground);
@@ -102,7 +111,7 @@ int main()
             cout<<"It is day/night"<<endl<<endl;
             cout<<"press 'p' to resume"<<endl;
         }
-    }
+    }*/
 
     return 0;
 }

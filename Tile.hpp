@@ -18,7 +18,7 @@ class Tile
         ~Tile();
     
         en_identity identity;
-
+        int picked;
         /*  identity = 0 -> ground
             identity = 1 -> tree
             identity = 2 -> water body
