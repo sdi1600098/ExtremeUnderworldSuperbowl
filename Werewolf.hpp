@@ -11,17 +11,17 @@ class Werewolf : public Entity
     Werewolf(int health);
 
     // Overridden defend function
-    void defend(int damage) override ;
+    void defend(int damage) override;
 
     // Overridden attack function
-    void attack(Entity& target) override ;
+    void attack(Entity& target) override;
 
     // Function for moving the werewolf on the grid
-    void move(Grid& grid) override ;
+    void move(Grid& grid) override;
 
     // Getters for the werewolf's position
-    int getX() const ;
-    int getY() const ;
+    int get_x() const ;
+    int get_y() const ;
 
   private:
     int the_x, the_y; // Werewolf's position on the grid

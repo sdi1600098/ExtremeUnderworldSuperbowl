@@ -14,18 +14,18 @@ class Entity
     virtual ~Entity() {}
 
     // Getters
-    int getHealth() const;
-    int getAttack() const;
-    int getDefense() const;
+    int get_health() const;
+    int get_attack() const;
+    int get_defense() const;
 
     // Setters
-    void setHealth(int health);
+    void set_health(int health);
 
     // Function for generating a random attack value
-    void rand_Attack();
+    void rand_attack();
 
     // Function for generating a random defense value
-    void rand_Defense();
+    void rand_defense();
 
     // Virtual functions
     virtual void defend(int damage) = 0;

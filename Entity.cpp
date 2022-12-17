@@ -6,29 +6,29 @@ using namespace std;
 // Constructor
 Entity::Entity(int health) : the_health(health) 
 {
-    rand_Attack();
-    rand_Defense();
+    rand_attack();
+    rand_defense();
 }
 
 // Destructor
 //Entity::~Entity() {}
 
 // Getters
-int Entity::getHealth() const { return the_health; }
-int Entity::getAttack() const { return the_attack; }
-int Entity::getDefense() const { return the_defense; }
+int Entity::get_health() const { return the_health; }
+int Entity::get_attack() const { return the_attack; }
+int Entity::get_defense() const { return the_defense; }
 
 // Setters
-void Entity::setHealth(int health) { the_health = health; }
+void Entity::set_health(int health) { the_health = health; }
 
 // Function for generating a random attack value
-void Entity::rand_Attack() 
+void Entity::rand_attack() 
 {
   the_attack = 1 + rand() % 3;
 }
 
 // Function for generating a random defense value
-void Entity::rand_Defense() 
+void Entity::rand_defense() 
 {
   the_defense = 1 + rand() % 2;
 }

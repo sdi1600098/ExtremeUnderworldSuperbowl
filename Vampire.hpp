@@ -20,8 +20,8 @@ class Vampire : public Entity
     void move(Grid& grid) override;
 
     // Getters for the vampire's position
-    int getX() const;
-    int getY() const;
+    int get_x() const;
+    int get_y() const;
 
   private:
     int the_x, the_y; // Vampire's position on the grid

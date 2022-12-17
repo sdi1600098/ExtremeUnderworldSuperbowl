@@ -92,8 +92,8 @@ void Avatar::move(Grid& grid, char input) //override
 }    
 
 // Getters for the avatar's position
-int Avatar::getX() const { return the_x; }
-int Avatar::getY() const { return the_y; }
+int Avatar::get_x() const { return the_x; }
+int Avatar::get_y() const { return the_y; }
 
 
 int the_x, the_y; // Avatar's position on the grid

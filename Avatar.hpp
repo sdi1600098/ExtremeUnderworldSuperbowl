@@ -11,17 +11,17 @@ class Avatar : public Entity
     Avatar(int health);
 
     // Overridden defend function
-    void defend(int damage) override ;
+    void defend(int damage) override;
 
     // Overridden attack function
-    void attack(Entity& target) override ;
+    void attack(Entity& target) override;
 
     // Function for moving the avatar on the grid
     void move(Grid& grid, char input) override;
 
     // Getters for the avatar's position
-    int getX() const ;
-    int getY() const ;
+    int get_x() const ;
+    int get_y() const ;
 
   private:
     int the_x, the_y; // Avatar's position on the grid

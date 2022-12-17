@@ -8,7 +8,7 @@ Vampire::Vampire(int health)
   : Entity(health), potions(rand() % 3) {} // Initialize the number of potions to a random number between 0 and 2
 
 // Overridden defend function
-void Vampire::defend(int damage) override 
+void Vampire::defend(int damage) //override 
 {
   // Reduce the damage taken based on the vampire's defense
   damage -= the_defense;
@@ -19,14 +19,14 @@ void Vampire::defend(int damage) override
 }
 
 // Overridden attack function
-void Vampire::attack(Entity& target) override 
+void Vampire::attack(Entity& target) //override 
 {
   // Deal damage to the target based on the vampire's attack
   target.defend(the_attack);
 }
 
 // Function for moving the vampire on the grid
-void Vampire::move(Grid& grid) override
+void Vampire::move(Grid& grid) //override
 {
   // Randomly choose a direction for the vampire to move
   int dx = rand() % 3 - 1; // -1, 0, or 1
@@ -37,11 +37,11 @@ void Vampire::move(Grid& grid) override
   int y = the_y + dy;
 
   // Check if the new position is within the bounds of the grid
-  if (x >= 0 && x < grid.getWidth() && y >= 0 && y < grid.getHeight()) 
+  if (x >= 0 && x < grid.get_width() && y >= 0 && y < grid.get_height()) 
   {
     // Check if the new position is passable
-    const Tile& tile = grid.getTile(x, y);
-    if (tile.getType() == TileType::ground) 
+    const Tile& tile = grid.get_tile(x, y);
+    if (tile.get_type() == TileType::ground) 
     {
       // Update the vampire's position
       the_x = x;
@@ -51,8 +51,8 @@ void Vampire::move(Grid& grid) override
 }
 
 // Getters for the vampire's position
-int Vampire::getX() const { return the_x; }
-int Vampire::getY() const { return the_y; }
+int Vampire::get_x() const { return the_x; }
+int Vampire::get_y() const { return the_y; }
 
 
 int the_x, the_y; // Vampire's position on the grid
