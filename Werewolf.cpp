@@ -5,7 +5,7 @@ using namespace std;
 
 // Constructor
 Werewolf::Werewolf(int health)
-  : Entity(health), potions(rand() % 3) {} // Initialize the number of potions to a random number between 0 and 2
+  : Entity(health) {}
 
 // Overridden defend function
 void Werewolf::defend(int damage) //override 
