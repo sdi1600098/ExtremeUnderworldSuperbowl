@@ -1,50 +1,20 @@
 #include <iostream>
 //#include "Grid.hpp"
-#include "Avatar.hpp"
+//#include "Avatar.hpp"
+#include "Gameplay.hpp"
 using namespace std;
 
 int main()
 {
-    int height, length;
-    char input;
-    int correct_input = 0;
-    //-----Read input---------------//
-    cout<<"Input height:";          
-    cin>>height;                     
-    cout<<endl<<"Input length:";    
-    cin>>length;                     
-    cout<<endl;
-    while(correct_input == 0)            
-    {         
-        cout<<"Pick a side"<<endl;
-        cout<<"Press 'w' to join the ferocious werewolf army or press 'v' if you are goth."<<endl;
-        cin>>input;
-        cout<<endl;
-        switch(input)
-        {
-            case 'w':
-                correct_input = 1;
-            case 'v':
-                correct_input = 1;
-            case 'W':
-                correct_input = 1;
-            case 'V':
-                correct_input = 1;
-        }
-        if(correct_input == 0)
-            cout<<"Incorrect input! ";
-    }
-    //cout<<input;
-    //------------------------------//
-
-    //initialize map
-    Grid map(height, length);
-    map.rand_in_board();
+    int height = input_height();
+    int length = input_length();
+    char side = pick_side();
+    Grid map = create_board(height, length);
     map.print();
-    //-----------------------------------//
-    cin>>input;
-    Avatar player(5);
-    player.move(map, input);
+    Avatar player = create_player();
+    Werewolf* W_team;
+    //Vampire* V_team;
+    fill_mob_arrays((height*length)/15, W_team);
 
 
 

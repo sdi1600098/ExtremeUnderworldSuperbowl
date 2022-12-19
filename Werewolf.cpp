@@ -26,7 +26,7 @@ void Werewolf::attack(Entity& target) //override
 }
 
 // Function for moving the werewolf on the grid
-void Werewolf::move(Grid& grid) //override
+void Werewolf::move(Grid& grid, char input) //override
 {
   // Randomly choose a direction for the werewolf to move
   int dx = 0, dy = 0;
@@ -37,28 +37,28 @@ void Werewolf::move(Grid& grid) //override
   else if (r == 3) dy = 1;
 
   // Calculate the new position of the werewolf
-  int x = the_x + dx;
-  int y = the_y + dy;
+  int x = the_w_x + dx;
+  int y = the_w_y + dy;
 
   // Check if the new position is within the bounds of the grid
-  if (x >= 0 && x < grid.get_width() && y >= 0 && y < grid.get_height()) 
+  if (x >= 0 && x < grid.get_length() && y >= 0 && y < grid.get_height()) 
   {
     // Check if the new position is passable
-    const Tile& tile = grid.get_tile(x, y);
-    if (tile.get_type() == TileType::ground) 
+    //const Tile& tile = grid.get_tile(x, y);
+    if (grid.map[y][x].identity == ground)
     {
       // Update the werewolf's position
-      the_x = x;
-      the_y = y;
+      the_w_x = x;
+      the_w_y = y;
     }
   }
 }
 
 // Getters for the werewolf's position
-int Werewolf::get_x() const { return the_x; }
-int Werewolf::get_y() const { return the_y; }
+int Werewolf::get_x() const { return the_w_x; }
+int Werewolf::get_y() const { return the_w_y; }
 
 
-int the_x, the_y; // Werewolf's position on the grid
+int the_w_x, the_w_y; // Werewolf's position on the grid
 int healing_potions; //  The amount of healing potions the werewolf has
 
