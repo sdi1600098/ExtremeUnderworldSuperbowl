@@ -5,7 +5,7 @@ using namespace std;
 
 // Constructor
 Werewolf::Werewolf(int health)
-  : Entity(health) {}
+  : Entity(health) {hp = 69;}
 
 // Overridden defend function
 void Werewolf::defend(int damage) //override 

@@ -87,18 +87,52 @@ Werewolf create_werewolf()
     return temp_werewolf;
 }
 
-/*Vampire create_vampire()
+Vampire create_vampire()
 {
     Vampire temp_vampire(5);
     return temp_vampire;
-}*/
+}
 
-void fill_mob_arrays(int number_of_team_members, Werewolf* w_array)
+void fill_mob_arrays(int number_of_team_members, Werewolf* w_array, Vampire* v_array)
 {
+    
     for(int i = 0 ; i < number_of_team_members ; i++)
     {
-        
         w_array[i] = create_werewolf();
-        //v_array[i] = create_vampire();
+        v_array[i] = create_vampire();
+    }
+}
+
+void play(Avatar player, Grid& board)
+{
+    int game_over = 0;
+    int game_paused = 0;
+    char input;
+    int first_move = 1;
+    while(game_over == 0)
+    {
+        if(game_paused == 0 || first_move == 1)
+        {
+            first_move == 0;
+            board.print();
+        }
+        else
+        {
+            cout<<" # GAME PAUSED #"<<endl<<endl;
+            cout<<"Werewolf alliance of the oppressed warriors left: "<<endl;
+            cout<<"Pale edgy people with black make-up left: "<<endl;
+            cout<<"It is day/night"<<endl<<endl;
+            cout<<"press 'p' to resume"<<endl;
+        }
+        cin>>input;
+        cout<<endl;
+        if(input == 'p')
+        {
+            if(game_paused == 0)
+                game_paused = 1;
+            else    
+                game_paused = 0;
+        }
+        player.move(board, input);
     }
 }

@@ -31,12 +31,13 @@ void Avatar::move(Grid& grid, char input) //override
     // Get the current position of the avatar
     int x = grid.get_player_x();
     int y = grid.get_player_y();
-
+    cout<<"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"<<endl;
+    cout<<input;
     // Update the position of the avatar based on the input
     switch(input)
     {
         case 'w' :
-            if(y > 0)
+            if(y > 0 && (grid.map[y - 1][x].identity == ground || grid.map[y - 1][x].identity == potion))
             {
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
@@ -49,7 +50,7 @@ void Avatar::move(Grid& grid, char input) //override
             break;
 
         case 'a' :
-            if(x > 0)
+            if(x > 0 && (grid.map[y][x - 1].identity == ground || grid.map[y][x - 1].identity == potion))
             {
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
@@ -62,7 +63,7 @@ void Avatar::move(Grid& grid, char input) //override
             break;
 
         case 's' :
-            if(y < grid.get_height() - 1)
+            if(y < grid.get_height() - 1 && (grid.map[y + 1][x].identity == ground || grid.map[y + 1][x].identity == potion))
             {
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
@@ -75,7 +76,7 @@ void Avatar::move(Grid& grid, char input) //override
             break;
 
         case 'd' :
-            if(x < grid.get_length() - 1)
+            if(x < grid.get_length() - 1 && (grid.map[y][x + 1].identity == ground || grid.map[y][x + 1].identity == potion))
             {
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
@@ -86,9 +87,18 @@ void Avatar::move(Grid& grid, char input) //override
                 the_y = y;
             }
             break;
+        case 'p' :
+            break;
+
+        case 'u' :
+            //use magic pot
+            break;
+            
         default:
-        break;
+            cout<<"INVALID INPUT, PRESS 'p' for controls"<<endl<<endl;
+            break;
     }
+    
 }    
 
 // Getters for the avatar's position

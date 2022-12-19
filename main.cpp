@@ -10,13 +10,12 @@ int main()
     int length = input_length();
     char side = pick_side();
     Grid map = create_board(height, length);
-    map.print();
     Avatar player = create_player();
-    Werewolf* W_team;
-    //Vampire* V_team;
-    fill_mob_arrays((height*length)/15, W_team);
+    Werewolf* W_team = new Werewolf(5);
+    Vampire* V_team = new Vampire(5);
+    fill_mob_arrays((height*length)/15, W_team, V_team);
 
-
+    play(player, map);
 
 
 
