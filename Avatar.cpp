@@ -4,8 +4,10 @@ using namespace std;
 
 
 // Constructor
-Avatar::Avatar(int health)
-  : Entity(health) {}
+Avatar::Avatar(int health): Entity(health) 
+{
+  magic_potions = 1;
+}
 
 // Overridden defend function
 void Avatar::defend(int damage) //override 
