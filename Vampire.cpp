@@ -4,8 +4,10 @@ using namespace std;
 
 
 // Constructor
-Vampire::Vampire(int health)
-  : Entity(health) {} 
+Vampire::Vampire(int health): Entity(health) 
+  {
+    v_healing_potions = rand() % 3;
+  } 
 
 // Overridden defend function
 void Vampire::defend(int damage) //override 
@@ -55,6 +57,6 @@ int Vampire::get_x() const { return the_v_x; }
 int Vampire::get_y() const { return the_v_y; }
 
 
-int the_v_x, the_v_y; // Vampire's position on the grid
-int v_healing_potions; //  The amount of healing potions the vampire has
+//int the_v_x, the_v_y; // Vampire's position on the grid
+//int v_healing_potions; //  The amount of healing potions the vampire has
 
