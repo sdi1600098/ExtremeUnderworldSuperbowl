@@ -20,6 +20,9 @@ class Werewolf : public Entity
     // Function for moving the werewolf on the grid
     void move(Grid& grid, char input) override;
 
+    //Setters for the werewolves' position
+    void set_x(int x);
+    void set_y(int y);
     // Getters for the werewolf's position
     int get_x() const ;
     int get_y() const ;

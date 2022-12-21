@@ -20,6 +20,10 @@ class Vampire : public Entity
     // Function for moving the vampire on the grid
     void move(Grid& grid, char input) override;
 
+    //Setters
+    void set_x(int x);
+    void set_y(int y);
+
     // Getters for the vampire's position
     int get_x() const;
     int get_y() const;

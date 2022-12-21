@@ -29,7 +29,7 @@ void Werewolf::attack(Entity& target) //override
 
 // Function for moving the werewolf on the grid
 void Werewolf::move(Grid& grid, char input) //override
-{
+{/*
   // Randomly choose a direction for the werewolf to move
   int dx = 0, dy = 0;
   int r = rand() % 4;
@@ -49,11 +49,25 @@ void Werewolf::move(Grid& grid, char input) //override
     //const Tile& tile = grid.get_tile(x, y);
     if (grid.map[y][x].identity == ground)
     {
+      grid.set_identity(get_y(), get_x(), ground);
+      grid.set_identity(y, x, werewolf);
       // Update the werewolf's position
-      the_w_x = x;
-      the_w_y = y;
+      set_x(x);
+      set_y(y);
     }
   }
+  */
+ return;
+}
+
+//Setters
+void Werewolf::set_x(int x)
+{
+  the_w_x = x;
+}
+void Werewolf::set_y(int y)
+{
+  the_w_y = y;
 }
 
 // Getters for the werewolf's position

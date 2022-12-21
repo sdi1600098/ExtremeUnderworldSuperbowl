@@ -52,6 +52,16 @@ void Vampire::move(Grid& grid, char input) //override
   }
 }
 
+//Setters
+void Vampire::set_x(int x)
+{
+  the_v_x = x;
+}
+void Vampire::set_y(int y)
+{
+  the_v_y = y;
+}
+
 // Getters for the vampire's position
 int Vampire::get_x() const { return the_v_x; }
 int Vampire::get_y() const { return the_v_y; }

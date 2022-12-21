@@ -12,5 +12,5 @@ Avatar create_player();
 Werewolf create_werewolf();
 Vampire create_vampire();
 void fill_mob_arrays(int number_of_team_members, Werewolf* w_array, Vampire* v_array);
-
-void play(Avatar player, Grid& board);
+void set_coordinates(Grid& board, Werewolf* w_array, Vampire* v_array, int height, int length);
+void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int number_of_team_members);

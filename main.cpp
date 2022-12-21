@@ -14,10 +14,20 @@ int main()
     Werewolf* W_team = new Werewolf(5);
     Vampire* V_team = new Vampire(5);
     fill_mob_arrays((height*length)/15, W_team, V_team);
-    //for(int i = 0 ; i < (height*length)/15 ; i++)
+    set_coordinates(map, W_team, V_team, height, length);
+    for(int i = 0 ; i < (height*length)/15 ; i++)
+    {
+        cout<<"Wolf# "<<i<<"x: "<<W_team[i].get_x()<<" y: "<<W_team[i].get_y()<<endl;
+        //cout<<"Vamp# "<<i<<"x: "<<V_team[i].get_x()<<" y: "<<V_team[i].get_y()<<endl;
         //cout<<"#"<<i<<"pots: "<<W_team[i].get_w_healing_potions()<<endl;
-
-    play(player, map);
+    }
+    map.print();
+    for(int i = 0 ; i < (height*length)/15 ; i++)
+    {
+        W_team[i].move(map, 'c');
+        map.print();
+    }
+    play(player, map, W_team, V_team, (height*length)/15);
 
    /* int game_over = 0;
     int game_paused = 0;

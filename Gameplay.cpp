@@ -103,7 +103,32 @@ void fill_mob_arrays(int number_of_team_members, Werewolf* w_array, Vampire* v_a
     }
 }
 
-void play(Avatar player, Grid& board)
+void set_coordinates(Grid& board, Werewolf* w_array, Vampire* v_array, int height, int length)
+{
+    int werewolf_index = 0;
+    int vampire_index = 0;
+    for(int i = 0 ; i < height ; i++)
+        for(int j = 0 ; j < length ; j++)
+        {
+            if(board.map[i][j].identity == werewolf && board.map[i][j].picked == 0)
+            {
+                w_array[werewolf_index].set_x(j);
+                w_array[werewolf_index].set_y(i);
+                board.map[i][j].picked = 1;
+                werewolf_index++;
+            }
+            else if(board.map[i][j].identity == vampire && board.map[i][j].picked == 0)
+            {
+                v_array[vampire_index].set_x(j);
+                v_array[vampire_index].set_y(i);
+                board.map[i][j].picked = 1;
+                vampire_index++;
+            }
+
+        }
+}
+
+void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int number_of_team_members)
 {
     int game_over = 0;
     int game_paused = 0;
@@ -134,5 +159,10 @@ void play(Avatar player, Grid& board)
                 game_paused = 0;
         }
         player.move(board, input);
+        cout<<"---------"<<w_array[5].get_x()<<"  "<<w_array[1].get_y()<<endl;
+        //for(int i = 0 ; i < number_of_team_members ; i++)
+        //{
+            //w_array[i].move(board, input);
+        //}
     }
 }
