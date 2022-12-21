@@ -1,6 +1,7 @@
 #ifndef WEREWOLF
 #define WEREWOLF
 #include <iostream>
+#include <math.h>
 #include "Entity.hpp"
 using namespace std;
 

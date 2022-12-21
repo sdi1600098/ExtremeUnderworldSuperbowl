@@ -10,11 +10,11 @@ int input_height()
     {
         cout<<"Input height:";          
         cin>>height;
-        if(height >= 5 && height <= 100)
+        if(height >= 5 && height <= 50)
             correct_input = 1;  
         else
         {
-            cout<<"Invalid height, enter a number between 5 and 100."<<endl<<endl;
+            cout<<"Invalid height, enter a number between 5 and 50."<<endl<<endl;
         }                
     }
     return height;
@@ -29,11 +29,11 @@ int input_length()
     {
         cout<<"Input length:";          
         cin>>length;
-        if(length >= 5 && length <= 100)
+        if(length >= 5 && length <= 50)
             correct_input = 1;  
         else
         {
-            cout<<"Invalid length, enter a number between 5 and 100."<<endl<<endl;
+            cout<<"Invalid length, enter a number between 5 and 50."<<endl<<endl;
         }                
     }
     return length;

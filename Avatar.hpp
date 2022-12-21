@@ -2,6 +2,8 @@
 #define AVATAR
 #include <iostream>
 #include "Entity.hpp"
+#include "Werewolf.hpp"
+#include "Vampire.hpp"
 using namespace std;
 
 class Avatar : public Entity 

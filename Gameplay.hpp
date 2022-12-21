@@ -1,6 +1,6 @@
 #include "Avatar.hpp"
-#include "Werewolf.hpp"
-#include "Vampire.hpp"
+//#include "Werewolf.hpp"
+//#include "Vampire.hpp"
 
 int input_height();
 int input_length();

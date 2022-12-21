@@ -14,10 +14,10 @@ int main()
     Werewolf* W_team = new Werewolf(5);
     Vampire* V_team = new Vampire(5);
     fill_mob_arrays((height*length)/15, W_team, V_team);
+    //for(int i = 0 ; i < (height*length)/15 ; i++)
+        //cout<<"#"<<i<<"pots: "<<W_team[i].get_w_healing_potions()<<endl;
 
     play(player, map);
-
-
 
    /* int game_over = 0;
     int game_paused = 0;

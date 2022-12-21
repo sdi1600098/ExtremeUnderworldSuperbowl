@@ -33,7 +33,6 @@ void Avatar::move(Grid& grid, char input) //override
     // Get the current position of the avatar
     int x = grid.get_player_x();
     int y = grid.get_player_y();
-    cout<<"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"<<endl;
     cout<<input;
     // Update the position of the avatar based on the input
     switch(input)
