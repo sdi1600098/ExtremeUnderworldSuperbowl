@@ -107,7 +107,48 @@ void Avatar::move(Grid& grid, char input) //override
 int Avatar::get_x() const { return the_x; }
 int Avatar::get_y() const { return the_y; }
 
+int Avatar::get_magic_potions() const 
+{
+  return magic_potions;
+}
 
-int the_x, the_y; // Avatar's position on the grid
-int magic_potions; // the amount of magic potions the avatar has
+void Avatar::set_magic_potions(int potions) 
+{
+  magic_potions = potions;
+}
+
+// Function for using a magic potion
+void Avatar::use_magic_potion(char side,int number_of_team_members, Werewolf* w_array, Vampire* v_array)
+{
+    // Check if the avatar has any magic potions remaining
+    if (get_magic_potions() > 0)
+    {
+        // Check if the avatar is team werewolves or team vampires.
+        // Then, check if it is day or night.
+        if (side == 'w' || side == 'W') // && it is night
+        {            
+            set_magic_potions(get_magic_potions() - 1); // Decrement the number of magic potions remaining
+            // Restore every werewolf to full health
+            for (int i = 0; i < number_of_team_members; i++)
+            {
+                w_array[i].set_health(5);  
+            }
+        }
+        else if (side == 'v' || side == 'V') // && it is day
+        {
+            set_magic_potions(get_magic_potions() - 1); // Decrement the number of magic potions remaining
+            // Restore every vampire to full health
+            for (int i = 0; i < number_of_team_members; i++)
+            {
+                v_array[i].set_health(5);  
+            }
+        }
+    }
+    else
+    {
+        cout << "There are no magic potions left." << endl;
+    }
+}
+
+
 

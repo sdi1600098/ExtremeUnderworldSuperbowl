@@ -4,8 +4,10 @@ using namespace std;
 
 
 // Constructor
-Werewolf::Werewolf(int health)
-  : Entity(health) {hp = 69;}
+Werewolf::Werewolf(int health): Entity(health) 
+{
+  w_healing_potions = rand() % 3;
+}
 
 // Overridden defend function
 void Werewolf::defend(int damage) //override 
@@ -58,7 +60,48 @@ void Werewolf::move(Grid& grid, char input) //override
 int Werewolf::get_x() const { return the_w_x; }
 int Werewolf::get_y() const { return the_w_y; }
 
+// Getter and setter for the werewolf's potions
 
-int the_w_x, the_w_y; // Werewolf's position on the grid
-int healing_potions; //  The amount of healing potions the werewolf has
+int Werewolf::get_w_healing_potions() const 
+{
+  return w_healing_potions;
+}
 
+void Werewolf::set_w_healing_potions(int potions) 
+{
+  w_healing_potions = potions;
+}
+
+// Function for interactions
+void Werewolf::attack_or_heal(Grid& grid, Werewolf& other)
+{
+  // Check if the other entity is within the bounds of the grid
+  if (other.get_x() >= 0 && other.get_x() < grid.get_length() && other.get_y() >= 0 && other.get_y() < grid.get_height())
+  {
+    // Check if other werewolf is adjacent
+    if (abs(the_w_x - other.get_x()) <= 1 && abs(the_w_y - other.get_y()) <= 1)
+    {
+      // Check if other werewolf is not at full health and this werewolf has potions
+      if (other.get_health() < 3 && w_healing_potions > 0)
+      {
+        // Randomly decide whether to use a potion
+        if (rand() % 2 == 0)
+        {
+          // Use a potion and update the number of potions remaining
+          other.set_health(other.get_health() + 1);
+          set_w_healing_potions(w_healing_potions - 1);
+        }
+      } 
+    }
+    // Check if there is a vampire adjacent
+    else if (abs(the_w_x - other.get_x()) <= 1 && abs(the_w_y - other.get_y()) <= 1)
+    {
+      // Check if this werewolf has higher attack than the vampire
+      if (get_attack() > other.get_attack())
+      {
+        // Attack the vampire
+        attack(other);
+      }
+    }
+  }
+}

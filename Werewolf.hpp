@@ -22,10 +22,17 @@ class Werewolf : public Entity
     // Getters for the werewolf's position
     int get_x() const ;
     int get_y() const ;
-    int hp;
+    //int hp;
+    // Getter and setter for the vampire's potions
+    int get_w_healing_potions() const;
+    void set_w_healing_potions(int potions);
+
+    // Function for interactions
+    void attack_or_heal(Grid& grid, Werewolf& other);
+
   private:
     int the_w_x, the_w_y; // Werewolf's position on the grid
-    int healing_potions; //  The amount of healing potions the werewolf has
+    int w_healing_potions; //  The amount of healing potions the werewolf has
 };
 
 #endif // WEREWOLF

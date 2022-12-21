@@ -23,6 +23,13 @@ class Vampire : public Entity
     int get_x() const;
     int get_y() const;
 
+    // Getter and setter for the vampire's potions
+    int get_v_healing_potions() const;
+    void set_v_healing_potions(int potions);
+
+    // Function for interactions
+    void attack_or_heal(Grid& grid, Vampire& other);
+
   private:
     int the_v_x, the_v_y; // Vampire's position on the grid
     int v_healing_potions; //  The amount of healing potions the vampire has

@@ -56,7 +56,49 @@ void Vampire::move(Grid& grid, char input) //override
 int Vampire::get_x() const { return the_v_x; }
 int Vampire::get_y() const { return the_v_y; }
 
+// Getter and setter for the vampire's potions
 
-//int the_v_x, the_v_y; // Vampire's position on the grid
-//int v_healing_potions; //  The amount of healing potions the vampire has
+int Vampire::get_v_healing_potions() const 
+{
+  return v_healing_potions;
+}
+
+void Vampire::set_v_healing_potions(int potions) 
+{
+  v_healing_potions = potions;
+}
+
+// Function for interactions
+void Vampire::attack_or_heal(Grid& grid, Vampire& other)
+{
+  // Check if the other entity is within the bounds of the grid
+  if (other.get_x() >= 0 && other.get_x() < grid.get_length() && other.get_y() >= 0 && other.get_y() < grid.get_height())
+  {
+    // Check if other vampire is adjacent
+    if (abs(the_v_x - other.get_x()) <= 1 && abs(the_v_y - other.get_y()) <= 1)
+    {
+      // Check if other vampire is not at full health and this vampire has magic potions
+      if (other.get_health() < 3 && v_healing_potions > 0)
+      {
+        // Randomly decide whether to use a magic potion
+        if (rand() % 2 == 0)
+        {
+          // Use a magic potion and update the number of potions remaining
+          other.set_health(other.get_health() + 1);
+          set_v_healing_potions(v_healing_potions - 1);
+        }
+      } 
+    }
+    // Check if there is a werewolf adjacent
+    else if (abs(the_v_x - other.get_x()) <= 1 && abs(the_v_y - other.get_y()) <= 1)
+    {
+      // Check if this vampire has higher attack than the werewolf
+      if (get_attack() > other.get_attack())
+      {
+        // Attack the werewolf
+        attack(other);
+      }
+    }
+  }
+}
 
