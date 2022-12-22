@@ -36,7 +36,7 @@ class Werewolf : public Entity
 
     // Function for interactions
     void attack_or_heal(Grid& grid, Werewolf& other);
-
+    
   private:
     int the_w_x, the_w_y; // Werewolf's position on the grid
     int w_healing_potions; //  The amount of healing potions the werewolf has

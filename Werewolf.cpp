@@ -53,7 +53,6 @@ void Werewolf::move(Grid& grid, char input) //override
     if (x >= 0 && x < grid.get_length() && y >= 0 && y < grid.get_height()) 
     {
       // Check if the new position is passable
-      //const Tile& tile = grid.get_tile(x, y);
       if (grid.map[y][x].identity == ground)
       {
         grid.set_identity(get_y(), get_x(), ground);

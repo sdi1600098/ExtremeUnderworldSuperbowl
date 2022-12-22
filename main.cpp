@@ -17,7 +17,7 @@ int main()
     set_coordinates(map, W_team, V_team, height, length);
     for(int i = 0 ; i < (height*length)/15 ; i++)
     {
-        cout<<"Wolf# "<<i<<"x: "<<W_team[i].get_x()<<" y: "<<W_team[i].get_y()<<endl;
+        //cout<<"Wolf# "<<i<<" "<<W_team[i].get_the_attack()<<endl;
         //cout<<"Vamp# "<<i<<"x: "<<V_team[i].get_x()<<" y: "<<V_team[i].get_y()<<endl;
         //cout<<"#"<<i<<"pots: "<<W_team[i].get_w_healing_potions()<<endl;
     }
