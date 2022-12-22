@@ -34,24 +34,31 @@ void Vampire::attack(Entity& target) //override
 // Function for moving the vampire on the grid
 void Vampire::move(Grid& grid, char input) //override
 {
-  // Randomly choose a direction for the vampire to move
-  int dx = rand() % 3 - 1; // -1, 0, or 1
-  int dy = rand() % 3 - 1; // -1, 0, or 1
-
-  // Calculate the new position of the vampire
-  int x = the_v_x + dx;
-  int y = the_v_y + dy;
-
-  // Check if the new position is within the bounds of the grid
-  if (x >= 0 && x < grid.get_length() && y >= 0 && y < grid.get_height()) 
+  int move_taken = 0;
+  while(move_taken == 0)
   {
-    // Check if the new position is passable
-    //const Tile& tile = grid.get_tile(x, y);
-    if (grid.map[y][x].identity == ground) 
+    // Randomly choose a direction for the vampire to move
+    int dx = rand() % 3 - 1; // -1, 0, or 1
+    int dy = rand() % 3 - 1; // -1, 0, or 1
+
+    // Calculate the new position of the vampire
+    int x = the_v_x + dx;
+    int y = the_v_y + dy;
+
+    // Check if the new position is within the bounds of the grid
+    if (x >= 0 && x < grid.get_length() && y >= 0 && y < grid.get_height()) 
     {
-      // Update the vampire's position
-      the_v_x = x;
-      the_v_y = y;
+      // Check if the new position is passable
+      //const Tile& tile = grid.get_tile(x, y);
+      if (grid.map[y][x].identity == ground) 
+      {
+        grid.set_identity(get_y(), get_x(), ground);
+        grid.set_identity(y, x, vampire);
+        // Update the vampire's position
+        set_x(x);
+        set_y(y);
+        move_taken = 1;
+      }
     }
   }
 }
