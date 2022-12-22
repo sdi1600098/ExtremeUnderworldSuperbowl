@@ -8,9 +8,10 @@ int main()
 {
     int height = input_height();
     int length = input_length();
-    char side = pick_side();
-    Grid map = create_board(height, length);
     Avatar player = create_player();
+    pick_side(player);
+    cout<<"EIMAI ME TOUS: "<<player.get_side()<<endl;
+    Grid map = create_board(height, length);
     Werewolf* W_team = new Werewolf[(height*length)/15];
     Vampire* V_team = new Vampire[(height*length)/15];
     fill_mob_arrays((height*length)/15, W_team, V_team);

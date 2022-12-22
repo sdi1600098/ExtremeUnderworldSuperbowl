@@ -4,7 +4,7 @@
 
 int input_height();
 int input_length();
-char pick_side();
+void pick_side(Avatar& player);
 
 Grid create_board(int height, int length);
 

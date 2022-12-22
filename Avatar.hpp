@@ -32,9 +32,14 @@ class Avatar : public Entity
     // Function for using a magic potion
     void use_magic_potion(char side,int number_of_team_members, Werewolf* w_array, Vampire* v_array);
 
+    //Setter and getter for side
+    void set_side(char s);
+    char get_side();
+
   private:
     int the_x, the_y; // Avatar's position on the grid
     int magic_potions; // the amount of magic potions the avatar has
+    char side;
 };
 
 #endif // AVATAR

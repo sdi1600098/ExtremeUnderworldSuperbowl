@@ -39,7 +39,11 @@ void Avatar::move(Grid& grid, char input) //override
     {
         case 'w' :
             if(y > 0 && (grid.map[y - 1][x].identity == ground || grid.map[y - 1][x].identity == potion))
-            {
+            {   
+                if(grid.map[y - 1][x].identity == potion)
+                {
+                    set_magic_potions(get_magic_potions() + 1);
+                }
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
                 grid.set_identity(y - 1, x, player_avatar);
@@ -53,6 +57,10 @@ void Avatar::move(Grid& grid, char input) //override
         case 'a' :
             if(x > 0 && (grid.map[y][x - 1].identity == ground || grid.map[y][x - 1].identity == potion))
             {
+                if(grid.map[y][x - 1].identity == potion)
+                {
+                    set_magic_potions(get_magic_potions() + 1);
+                }
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
                 grid.set_identity(y, x - 1, player_avatar);
@@ -66,6 +74,10 @@ void Avatar::move(Grid& grid, char input) //override
         case 's' :
             if(y < grid.get_height() - 1 && (grid.map[y + 1][x].identity == ground || grid.map[y + 1][x].identity == potion))
             {
+                if(grid.map[y + 1][x].identity == potion)
+                {
+                    set_magic_potions(get_magic_potions() + 1);
+                }
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
                 grid.set_identity(y + 1, x, player_avatar);
@@ -79,6 +91,10 @@ void Avatar::move(Grid& grid, char input) //override
         case 'd' :
             if(x < grid.get_length() - 1 && (grid.map[y][x + 1].identity == ground || grid.map[y][x + 1].identity == potion))
             {
+                if(grid.map[y][x + 1].identity == potion)
+                {
+                    set_magic_potions(get_magic_potions() + 1);
+                }
                 // Update the avatar's position on the grid
                 grid.set_identity(y, x, ground);
                 grid.set_identity(y, x + 1, player_avatar);
@@ -147,6 +163,16 @@ void Avatar::use_magic_potion(char side,int number_of_team_members, Werewolf* w_
     {
         cout << "There are no magic potions left." << endl;
     }
+}
+
+void Avatar::set_side(char s)
+{
+    side = s;
+}
+
+char Avatar::get_side()
+{
+    return side;
 }
 
 

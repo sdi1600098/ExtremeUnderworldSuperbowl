@@ -40,7 +40,7 @@ int input_length()
 
 }
 
-char pick_side()
+void pick_side(Avatar& player)
 {
     int correct_input = 0;
     char input;
@@ -64,7 +64,7 @@ char pick_side()
         if(correct_input == 0)
             cout<<"Incorrect input! ";
     }
-    return input;
+    player.set_side(input);
 
 }
 
