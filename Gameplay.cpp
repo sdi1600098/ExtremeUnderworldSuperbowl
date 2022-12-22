@@ -101,6 +101,7 @@ void fill_mob_arrays(int number_of_team_members, Werewolf* w_array, Vampire* v_a
         w_array[i] = create_werewolf();
         v_array[i] = create_vampire();
     }
+    return;
 }
 
 void set_coordinates(Grid& board, Werewolf* w_array, Vampire* v_array, int height, int length)
@@ -159,10 +160,85 @@ void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int n
                 game_paused = 0;
         }
         player.move(board, input);
-        cout<<"---------"<<w_array[5].get_x()<<"  "<<w_array[1].get_y()<<endl;
-        //for(int i = 0 ; i < number_of_team_members ; i++)
-        //{
-            //w_array[i].move(board, input);
-        //}
+        for(int i = 0 ; i < number_of_team_members ; i++)
+        {   
+            int im_moving = 1;
+            int x = w_array[i].get_x();
+            int y = w_array[i].get_y();
+            if(y > 0)
+            {
+                int w1 = check_for_neighboring_werewolf(board, w_array, number_of_team_members, x, y - 1);
+                //int v1 = 
+                if(w1 > -1)
+                {
+                    cout<<"O APO PANW: "<<w_array[w1].get_x()<<", "<<w_array[w1].get_y()<<endl;
+                    if(rand() % 2 == 1)
+                    {
+                        cout<<"HEALED"<<endl;
+                        im_moving = 0;
+                    }
+                }
+            }
+            if(y + 1 < board.get_height() && im_moving == 1)
+            {
+                int w2 = check_for_neighboring_werewolf(board, w_array, number_of_team_members, x, y + 1);
+                if(w2 > -1)
+                {
+                    cout<<"O APO KATW: "<<w_array[w2].get_x()<<", "<<w_array[w2].get_y()<<endl;
+                    if(rand() % 2 == 1)
+                    {
+                        cout<<"HEALED"<<endl;
+                        im_moving = 0;
+                    }
+                }
+            }
+            if(x > 0 && im_moving == 1)
+            {
+                int w3 = check_for_neighboring_werewolf(board, w_array, number_of_team_members, x - 1, y);
+                if(w3 > -1)
+                {
+                    cout<<"O APO ARISTERA: "<<w_array[w3].get_x()<<", "<<w_array[w3].get_y()<<endl;
+                    if(rand() % 2 == 1)
+                    {
+                        cout<<"HEALED"<<endl;
+                        im_moving = 0;
+                    }
+                }
+            }
+            if(x + 1 < board.get_length() && im_moving == 1)
+            {
+                int w4 = check_for_neighboring_werewolf(board, w_array, number_of_team_members, x + 1, y);
+                if(w4 > -1)
+                {
+                    cout<<"O APO DEKSIA: "<<w_array[w4].get_x()<<", "<<w_array[w4].get_y()<<endl;
+                    if(rand() % 2 == 1)
+                    {
+                        cout<<"HEALED"<<endl;
+                        im_moving = 0;
+                    }
+                }
+            }
+
+            if(im_moving == 1)
+                w_array[i].move(board, input);
+            cout<<"EPAIKSE O "<<i<<endl;
+            board.print();
+        }
     }
+    
+}
+
+int check_for_neighboring_werewolf(Grid& board, Werewolf* w_array, int number_of_team_members, int x, int y)
+{
+    int ii = -1;
+    if(board.map[y][x].identity == werewolf)
+    {
+        for(ii = 0 ; ii < number_of_team_members ; ii++)
+        {
+            if(w_array[ii].get_x() == x && w_array[ii].get_y() == y)
+                break;
+        }
+                    
+    }
+    return ii;
 }

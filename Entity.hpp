@@ -7,6 +7,9 @@ using namespace std;
 class Entity 
 {
   public:
+    //Default Constructor
+    Entity();
+    
     // Constructor
     Entity(int health);
 
