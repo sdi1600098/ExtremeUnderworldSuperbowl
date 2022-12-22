@@ -162,6 +162,7 @@ void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int n
         player.move(board, input);
         move_werewolves(board, w_array, v_array, number_of_team_members, input);
         move_vampires(board, w_array, v_array, number_of_team_members, input);
+        game_over = check_for_game_over(w_array, v_array, number_of_team_members);
     }
     
 }
@@ -490,4 +491,34 @@ int check_for_neighboring_vampire(Grid& board, Vampire* v_array, int number_of_t
                     
     }
     return ii;
+}
+
+int check_for_game_over(Werewolf* w_array, Vampire* v_array, int number_of_team_members)
+{   
+    int werewolves_still_standing = 0;
+    int vampires_still_standing = 0;
+    int game_over = 0;
+    for(int i = 0 ; i < number_of_team_members ; i++)
+    {   cout<<w_array[i].get_health()<<", "<<v_array[i].get_health()<<endl;
+        if(w_array[i].get_health() > 0)
+        {
+            werewolves_still_standing = 1;
+
+        }
+        if(v_array[i].get_health() > 0)
+        {
+            vampires_still_standing = 1;
+        }
+    }
+    if(werewolves_still_standing == 0)
+    {
+        cout<<"# VAMPIRES WIN #"<<endl;
+        game_over = 1;
+    }
+    else if(vampires_still_standing == 0)
+    {
+        cout<<"# WEREWOLVES WIN #"<<endl;
+        game_over = 1;
+    }
+    return game_over;
 }

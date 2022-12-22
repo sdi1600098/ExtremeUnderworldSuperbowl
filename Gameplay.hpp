@@ -18,3 +18,4 @@ void move_werewolves(Grid& board, Werewolf* w_array, Vampire* v_array, int numbe
 void move_vampires(Grid& board, Werewolf* w_array, Vampire* v_array, int number_of_team_members, char input);
 int check_for_neighboring_werewolf(Grid& board, Werewolf* w_array, int number_of_team_members, int x, int y);
 int check_for_neighboring_vampire(Grid& board, Vampire* v_array, int number_of_team_members, int x, int y);
+int check_for_game_over(Werewolf* w_array, Vampire* v_array, int number_of_team_members);
