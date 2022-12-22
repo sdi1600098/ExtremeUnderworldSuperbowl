@@ -8,6 +8,8 @@ using namespace std;
 class Vampire : public Entity
 {
   public:
+    //Default Constructor
+    Vampire();
     // Constructor
     Vampire(int health);
 

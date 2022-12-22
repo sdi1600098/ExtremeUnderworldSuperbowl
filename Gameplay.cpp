@@ -168,14 +168,21 @@ void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int n
             if(y > 0)
             {
                 int w1 = check_for_neighboring_werewolf(board, w_array, number_of_team_members, x, y - 1);
-                //int v1 = 
                 if(w1 > -1)
                 {
                     cout<<"O APO PANW: "<<w_array[w1].get_x()<<", "<<w_array[w1].get_y()<<endl;
-                    if(rand() % 2 == 1)
+                    if(w_array[w1].get_health() < 5 && rand() % 2 == 1)
                     {
                         cout<<"HEALED"<<endl;
                         im_moving = 0;
+                    }
+                }
+                else
+                {
+                    int v1 = check_for_neighboring_vampire(board, v_array, number_of_team_members, x, y - 1);
+                    if(v1 > -1)
+                    {
+                        cout<<"O APO PANW VAMPIRE: "<<v_array[v1].get_x()<<", "<<v_array[v1].get_y()<<endl;
                     }
                 }
             }
@@ -185,10 +192,18 @@ void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int n
                 if(w2 > -1)
                 {
                     cout<<"O APO KATW: "<<w_array[w2].get_x()<<", "<<w_array[w2].get_y()<<endl;
-                    if(rand() % 2 == 1)
+                    if(w_array[w2].get_health() < 5 && rand() % 2 == 1)
                     {
                         cout<<"HEALED"<<endl;
                         im_moving = 0;
+                    }
+                }
+                else
+                {
+                    int v2 = check_for_neighboring_vampire(board, v_array, number_of_team_members, x, y + 1);
+                    if(v2 > -1)
+                    {
+                        cout<<"O APO KATW VAMPIRE: "<<v_array[v2].get_x()<<", "<<v_array[v2].get_y()<<endl;
                     }
                 }
             }
@@ -198,10 +213,18 @@ void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int n
                 if(w3 > -1)
                 {
                     cout<<"O APO ARISTERA: "<<w_array[w3].get_x()<<", "<<w_array[w3].get_y()<<endl;
-                    if(rand() % 2 == 1)
+                    if(w_array[w3].get_health() < 5 && rand() % 2 == 1)
                     {
                         cout<<"HEALED"<<endl;
                         im_moving = 0;
+                    }
+                }
+                else
+                {
+                    int v3 = check_for_neighboring_vampire(board, v_array, number_of_team_members, x - 1, y);
+                    if(v3 > -1)
+                    {
+                        cout<<"O APO ARISTERA VAMPIRE: "<<v_array[v3].get_x()<<", "<<v_array[v3].get_y()<<endl;
                     }
                 }
             }
@@ -211,10 +234,18 @@ void play(Avatar player, Grid& board, Werewolf* w_array, Vampire* v_array, int n
                 if(w4 > -1)
                 {
                     cout<<"O APO DEKSIA: "<<w_array[w4].get_x()<<", "<<w_array[w4].get_y()<<endl;
-                    if(rand() % 2 == 1)
+                    if(w_array[w4].get_health() < 5 && rand() % 2 == 1)
                     {
                         cout<<"HEALED"<<endl;
                         im_moving = 0;
+                    }
+                }
+                else
+                {
+                    int v4 = check_for_neighboring_vampire(board, v_array, number_of_team_members, x + 1, y);
+                    if(v4 > -1)
+                    {
+                        cout<<"O APO DEKSIA VAMPIRE: "<<v_array[v4].get_x()<<", "<<v_array[v4].get_y()<<endl;
                     }
                 }
             }
@@ -236,6 +267,21 @@ int check_for_neighboring_werewolf(Grid& board, Werewolf* w_array, int number_of
         for(ii = 0 ; ii < number_of_team_members ; ii++)
         {
             if(w_array[ii].get_x() == x && w_array[ii].get_y() == y)
+                break;
+        }
+                    
+    }
+    return ii;
+}
+
+int check_for_neighboring_vampire(Grid& board, Vampire* v_array, int number_of_team_members, int x, int y)
+{
+    int ii = -1;
+    if(board.map[y][x].identity == vampire)
+    {
+        for(ii = 0 ; ii < number_of_team_members ; ii++)
+        {
+            if(v_array[ii].get_x() == x && v_array[ii].get_y() == y)
                 break;
         }
                     

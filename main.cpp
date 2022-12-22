@@ -12,7 +12,7 @@ int main()
     Grid map = create_board(height, length);
     Avatar player = create_player();
     Werewolf* W_team = new Werewolf[(height*length)/15];
-    Vampire* V_team = new Vampire(5);
+    Vampire* V_team = new Vampire[(height*length)/15];
     fill_mob_arrays((height*length)/15, W_team, V_team);
     set_coordinates(map, W_team, V_team, height, length);
     for(int i = 0 ; i < (height*length)/15 ; i++)

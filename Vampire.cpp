@@ -2,7 +2,11 @@
 #include "Vampire.hpp"
 using namespace std;
 
-
+//Default Constructor
+Vampire::Vampire()
+{
+  
+}
 // Constructor
 Vampire::Vampire(int health): Entity(health) 
   {
