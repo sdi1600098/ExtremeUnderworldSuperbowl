@@ -184,6 +184,7 @@ void play(Avatar *player, Grid *board, Werewolf **w_array, Vampire **v_array, in
             {
                 cout << "It is day" << endl;
             }
+            cout<<"Controls:"<<endl<<"press 'w' to go up"<<endl<<"press 's' to go down"<<endl<<"press 'a' to go left"<<endl<<"press 'd' to go right"<<endl<<"press 'u' to use magic potion"<<endl;
             cout << "press 'p' to resume" << endl;
         }
         cin >> input;
