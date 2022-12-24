@@ -168,6 +168,7 @@ void play(Avatar *player, Grid *board, Werewolf **w_array, Vampire **v_array, in
         if (game_paused == 0 || first_move == 1)
         {
             first_move = 0;
+            cout<<endl;
             board->print();
         }
         else
