@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Gameplay.hpp"
-#include <unistd.h>
 using namespace std;
 
 //Function that checks for valid height input (number within the boundaries set). Loops until correct input is given.
