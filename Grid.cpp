@@ -17,7 +17,7 @@ Grid::Grid(int in_height, int in_length, int number_of_team_members, Werewolf **
         cout << "Error allocating memory!";
     for (i = 0; i < height; i++)
     {
-        map[i] = new Tile[height];
+        map[i] = new Tile[length];
         if (!map[i])
             cout << "Error allocating memory!";
     }
