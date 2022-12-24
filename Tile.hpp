@@ -12,8 +12,6 @@ enum en_identity
     vampire,
     werewolf,
     potion
-
-
 };
 
 class Tile

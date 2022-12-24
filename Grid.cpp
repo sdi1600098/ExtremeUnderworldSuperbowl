@@ -204,6 +204,7 @@ int Grid::get_length()
 // Function to print the map using ASCII art(kinda)
 void Grid::print()
 {
+    cout<<endl;
     for (int i = 0; i < height; i++)
     {
         cout << "|";
