@@ -3,6 +3,7 @@
 #include <unistd.h>
 using namespace std;
 
+//Function that checks for valid height input (number within the boundaries set). Loops until correct input is given.
 int input_height()
 {
     int height;
@@ -14,7 +15,7 @@ int input_height()
         cout << "Input height:";
         cin >> input;
         is_numeric = true;
-        for (long unsigned int i = 0; i < input.length(); i++)
+        for (long unsigned int i = 0; i < input.length(); i++)          //long unsigned int because its used in stoi.
         {
             if (input[i] < '0' || input[i] > '9')
             {
@@ -39,6 +40,7 @@ int input_height()
     return height;
 }
 
+//Function that checks for valid length input (number within the boundaries set). Loops until correct input is given.
 int input_length()
 {
     int length;
@@ -50,7 +52,7 @@ int input_length()
         cout << "Input length:";
         cin >> input;
         is_numeric = true;
-        for (long unsigned int i = 0; i < input.length(); i++)
+        for (long unsigned int i = 0; i < input.length(); i++)          //long unsigned int because its used in stoi.
         {
             if (input[i] < '0' || input[i] > '9')
             {
@@ -75,6 +77,7 @@ int input_length()
     return length;
 }
 
+//Function that checks for correct side selection input (w or W for werewolves' team, v or V for vampires' team)
 char pick_side()
 {
     int correct_input = 0;
@@ -102,6 +105,7 @@ char pick_side()
     return input;
 }
 
+//Function to create a game's board (Grid object) and a pointer to it.
 Grid *create_board(int in_height, int in_length, int number_of_team_members, Werewolf **w_array, Vampire **v_array)
 {
     Grid *temp_board = new Grid(in_height, in_length, number_of_team_members, w_array, v_array);
@@ -109,12 +113,14 @@ Grid *create_board(int in_height, int in_length, int number_of_team_members, Wer
     return temp_board;
 }
 
+//Function to create an Avatar object and a pointer to it
 Avatar *create_player(char side)
 {
     Avatar *temp_player = new Avatar(5, side);
     return temp_player;
 }
 
+//Fill the two pointers of team arrays with objects
 void fill_mob_arrays(int number_of_team_members, Werewolf **w_array, Vampire **v_array)
 {
 
@@ -125,6 +131,7 @@ void fill_mob_arrays(int number_of_team_members, Werewolf **w_array, Vampire **v
     }
 }
 
+//Some tiles of grid are enumerated to vampire and werewolf respectively, this function assigns each of those tiles to the created objects.
 void set_coordinates(Grid *board, Werewolf **w_array, Vampire **v_array, int height, int length)
 {
     int werewolf_index = 0;
@@ -149,6 +156,7 @@ void set_coordinates(Grid *board, Werewolf **w_array, Vampire **v_array, int hei
         }
 }
 
+//Function that plays the game. Player inputs a move, function creates moves/attacks/heals for all mobs.
 void play(Avatar *player, Grid *board, Werewolf **w_array, Vampire **v_array, int number_of_team_members)
 {
     bool game_over = false;
@@ -220,6 +228,7 @@ void play(Avatar *player, Grid *board, Werewolf **w_array, Vampire **v_array, in
     }
 }
 
+//Check for win. If one of two teams is defeated(has 0 members)
 int check_win(Grid *board)
 {
     int vampire_counter = count_vampires(board);
@@ -238,6 +247,7 @@ int check_win(Grid *board)
     return 0;
 }
 
+//count remaining vampires
 int count_vampires(Grid *board)
 {
     Vampire **v_array = board->get_v_array();
@@ -256,6 +266,7 @@ int count_vampires(Grid *board)
     return vampire_counter++;
 }
 
+//count remaining werewolves
 int count_werewolves(Grid *board)
 {
     Werewolf **w_array = board->get_w_array();

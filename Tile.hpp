@@ -2,7 +2,7 @@
 #define TILE
 
 #include <iostream>
-
+//enumeration for clarity in the rest of the program.
 enum en_identity
 {
     ground,

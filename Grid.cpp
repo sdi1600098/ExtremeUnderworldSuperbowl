@@ -52,14 +52,14 @@ void Grid::rotate_is_night()
         this->is_night = true;
     }
 }
-
+//randomizing board. First inserting trees, then water, then potion, then mobs, then player.
 void Grid::rand_in_board()
 {
     srand(time(NULL));
     int valid;
     int candidate_h;
     int candidate_l;
-
+    //trees
     for (int i = 0; i <= (height * length) / 15; i++)
     {
         valid = 0;
@@ -74,7 +74,7 @@ void Grid::rand_in_board()
             }
         }
     }
-
+    //water
     for (int i = 0; i <= (height * length) / 15; i++)
     {
         valid = 0;
@@ -89,7 +89,7 @@ void Grid::rand_in_board()
             }
         }
     }
-
+    //potion
     valid = 0;
     while (valid == 0)
     {
@@ -101,7 +101,7 @@ void Grid::rand_in_board()
             valid = 1;
         }
     }
-
+    //vampire
     for (int i = 0; i < (height * length) / 15; i++)
     {
         valid = 0;
@@ -116,7 +116,7 @@ void Grid::rand_in_board()
             }
         }
     }
-
+    //werewolf
     for (int i = 0; i < (height * length) / 15; i++)
     {
         valid = 0;
@@ -131,7 +131,7 @@ void Grid::rand_in_board()
             }
         }
     }
-
+    //player
     valid = 0;
     while (valid == 0)
     {
@@ -144,17 +144,17 @@ void Grid::rand_in_board()
         }
     }
 }
-
+//getter for number of team members of each faction
 int Grid::get_number_of_team_members()
 {
     return number_of_team_members;
 }
-
+//getter for werewolf array
 Werewolf **Grid::get_w_array()
 {
     return w_array;
 }
-
+//getter for vampire array
 Vampire **Grid::get_v_array()
 {
     return v_array;
@@ -172,7 +172,7 @@ int Grid::get_identity(int x, int y)
 {
     return map[x][y].identity;
 }
-
+//getter for x dimension of player in the matrix
 int Grid::get_player_x(void)
 {
     for (int i = 0; i < height; i++)
@@ -181,7 +181,7 @@ int Grid::get_player_x(void)
                 return j;
     return 0;
 }
-
+//getter for y dimension of player in the matrix
 int Grid::get_player_y(void)
 {
     for (int i = 0; i < height; i++)
@@ -190,18 +190,18 @@ int Grid::get_player_y(void)
                 return i;
     return 0;
 }
-
+//getter for board height
 int Grid::get_height()
 {
     return height;
 }
-
+//getter for board length
 int Grid::get_length()
 {
     return length;
 }
 
-// Function to print the map
+// Function to print the map using ASCII art(kinda)
 void Grid::print()
 {
     for (int i = 0; i < height; i++)
