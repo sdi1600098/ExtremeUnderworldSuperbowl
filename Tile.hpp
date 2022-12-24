@@ -1,3 +1,8 @@
+#ifndef TILE
+#define TILE
+
+#include <iostream>
+
 enum en_identity
 {
     ground,
@@ -26,3 +31,5 @@ class Tile
             identity = 5 -> werewolf
             identity = 6 -> potion  */
 };
+
+#endif

@@ -10,16 +10,10 @@ class Avatar : public Entity
 {
   public:
     // Constructor
-    Avatar(int health);
-
-    // Overridden defend function
-    void defend(int damage) override;
-
-    // Overridden attack function
-    void attack(Entity& target) override;
+    Avatar(int health, char side);
 
     // Function for moving the avatar on the grid
-    void move(Grid& grid, char input) override;
+    void move(Grid* grid, char input) override;
 
     // Getters for the avatar's position
     int get_x() const ;
@@ -30,11 +24,7 @@ class Avatar : public Entity
     void set_magic_potions(int potions);
 
     // Function for using a magic potion
-    void use_magic_potion(char side,int number_of_team_members, Werewolf* w_array, Vampire* v_array);
-
-    //Setter and getter for side
-    void set_side(char s);
-    char get_side();
+    void use_magic_potion(char side,int number_of_team_members, Werewolf** w_array, Vampire** v_array, bool is_night);
 
   private:
     int the_x, the_y; // Avatar's position on the grid
@@ -43,3 +33,4 @@ class Avatar : public Entity
 };
 
 #endif // AVATAR
+

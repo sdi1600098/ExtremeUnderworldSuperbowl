@@ -1,17 +1,12 @@
 #include "Entity.hpp"
-#include <iostream>
 using namespace std;
 
-//Default Constructor
-Entity::Entity()
-{
-  
-}
+
 // Constructor
 Entity::Entity(int health) : the_health(health) 
 {
-  rand_attack();
-  rand_defense();
+    rand_attack();
+    rand_defense();
 }
 
 // Destructor
@@ -36,3 +31,4 @@ void Entity::rand_defense()
 {
   the_defense = 1 + rand() % 2;
 }
+

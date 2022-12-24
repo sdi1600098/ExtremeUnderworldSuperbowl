@@ -1,15 +1,12 @@
 #ifndef ENTITY
 #define ENTITY
-#include <iostream>
 #include "Grid.hpp"
+#include <iostream>
 using namespace std;
 
 class Entity 
 {
   public:
-    //Default Constructor
-    Entity();
-    
     // Constructor
     Entity(int health);
 
@@ -31,12 +28,11 @@ class Entity
     void rand_defense();
 
     // Virtual functions
-    virtual void defend(int damage) = 0;
-    virtual void attack(Entity& target) = 0;
-    virtual void move(Grid& grid, char input) = 0;
+    virtual void move(Grid* grid, char input) = 0;
 
   protected:
     int the_health, the_attack, the_defense; // Entity's stats
 };
 
 #endif // ENTITY
+
